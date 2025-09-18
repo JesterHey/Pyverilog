@@ -1,0 +1,158 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "diff_4004_dfg_files",
+			"type": "shell",
+			"command": "diff",
+			"args": [
+				"-u",
+				"4004_dfg.txt",
+				"4004_new_dfg.txt"
+			],
+			"isBackground": false,
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "shasum_4004_dfg_files",
+			"type": "shell",
+			"command": "shasum",
+			"args": [
+				"-a",
+				"256",
+				"4004_dfg.txt",
+				"4004_new_dfg.txt"
+			],
+			"isBackground": false,
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "gen_dfg_noreorder",
+			"type": "shell",
+			"command": "python3 examples/example_dataflow_analyzer.py -t alu --noreorder 4004.v > 4004_dfg_noreorder.txt",
+			"isBackground": false,
+			"group": "build"
+		},
+		{
+			"label": "gen_dfg_noreorder",
+			"type": "shell",
+			"command": "PYTHONPATH=. python3 examples/example_dataflow_analyzer.py -t alu --noreorder 4004.v > 4004_dfg_noreorder.txt",
+			"isBackground": false,
+			"group": "build"
+		},
+		{
+			"label": "gen_dfg_noreorder",
+			"type": "shell",
+			"command": "PYTHONPATH=.:build/lib python3 examples/example_dataflow_analyzer.py -t alu --noreorder 4004.v > 4004_dfg_noreorder.txt",
+			"isBackground": false,
+			"group": "build"
+		},
+		{
+			"label": "gen_dfg_noreorder",
+			"type": "shell",
+			"command": "PYTHONPATH=. python3 examples/example_dataflow_analyzer.py -t alu --noreorder 4004.v > 4004_dfg_noreorder.txt",
+			"isBackground": false,
+			"group": "build"
+		},
+		{
+			"label": "gen_dfg_noreorder",
+			"type": "shell",
+			"command": "PYTHONPATH=. python3 examples/example_dataflow_analyzer.py -t alu --noreorder 4004.v > 4004_dfg_noreorder.txt",
+			"isBackground": false,
+			"group": "build"
+		},
+		{
+			"label": "pip_install_pyverilog_deps",
+			"type": "shell",
+			"command": "python3 -m pip install -q ply Jinja2",
+			"isBackground": false,
+			"group": "build"
+		},
+		{
+			"label": "setup_venv_and_install",
+			"type": "shell",
+			"command": "python3 -m venv .venv && . .venv/bin/activate && python -m pip install -q -U pip && python -m pip install -q ply Jinja2",
+			"isBackground": false,
+			"group": "build"
+		},
+		{
+			"label": "install_deps_in_venv",
+			"type": "shell",
+			"command": "/Users/xuxiaolan/PycharmProjects/pyverilog/.venv/bin/python -m pip install -q ply Jinja2",
+			"isBackground": false,
+			"group": "build"
+		},
+		{
+			"label": "install_deps_trusted",
+			"type": "shell",
+			"command": "/Users/xuxiaolan/PycharmProjects/pyverilog/.venv/bin/python -m pip install -q --trusted-host pypi.org --trusted-host files.pythonhosted.org ply Jinja2",
+			"isBackground": false,
+			"group": "build"
+		},
+		{
+			"label": "gen_dfg_noreorder",
+			"type": "shell",
+			"command": "PYTHONPATH=. python3 examples/example_dataflow_analyzer.py -t alu --noreorder 4004.v > 4004_dfg_noreorder.txt",
+			"isBackground": false,
+			"group": "build"
+		},
+		{
+			"label": "gen_dfg_noreorder_with_venv",
+			"type": "shell",
+			"command": "PYTHONPATH=. /Users/xuxiaolan/PycharmProjects/pyverilog/.venv/bin/python examples/example_dataflow_analyzer.py -t alu --noreorder 4004.v > 4004_dfg_noreorder.txt",
+			"isBackground": false,
+			"group": "build"
+		},
+		{
+			"label": "diff_noreorder_vs_original",
+			"type": "shell",
+			"command": "diff -u 4004_dfg.txt 4004_dfg_noreorder.txt || true",
+			"isBackground": false,
+			"group": "build"
+		},
+		{
+			"label": "gen_dfg_nobind_with_venv",
+			"type": "shell",
+			"command": "PYTHONPATH=. /Users/xuxiaolan/PycharmProjects/pyverilog/.venv/bin/python examples/example_dataflow_analyzer.py -t alu --nobind 4004.v > 4004_dfg_nobind.txt",
+			"isBackground": false,
+			"group": "build"
+		},
+		{
+			"label": "diff_nobind_vs_original",
+			"type": "shell",
+			"command": "diff -u 4004_dfg.txt 4004_dfg_nobind.txt || true",
+			"isBackground": false,
+			"group": "build"
+		},
+		{
+			"label": "gen_dfg_simplified",
+			"type": "shell",
+			"command": "PYTHONPATH=. .venv/bin/python examples/example_dataflow_simplify.py -t alu 4004.v > 4004_dfg_simplified.txt",
+			"isBackground": false,
+			"group": "build"
+		},
+		{
+			"label": "diff_simplified_vs_original",
+			"type": "shell",
+			"command": "diff -u 4004_dfg.txt 4004_dfg_simplified.txt || true",
+			"isBackground": false,
+			"group": "build"
+		},
+		{
+			"label": "gen_baseline_dfg",
+			"type": "shell",
+			"command": "PYTHONPATH=. .venv/bin/python examples/example_dataflow_analyzer.py -t alu 4004.v > 4004_dfg.txt",
+			"isBackground": false,
+			"group": "build"
+		},
+		{
+			"label": "gen_dfg_simplified_raw",
+			"type": "shell",
+			"command": "PYTHONPATH=. .venv/bin/python examples/example_dataflow_simplify.py --pretty=off -t alu 4004.v > 4004_dfg_simplified_raw.txt",
+			"isBackground": false,
+			"group": "build"
+		}
+	]
+}

@@ -1,14 +1,13 @@
 from __future__ import absolute_import
 from __future__ import print_function
+from pyverilog.dataflow.dataflow_analyzer import VerilogDataflowAnalyzer
+import pyverilog
 import sys
 import os
 from optparse import OptionParser
 
 # the next line can be removed after installation
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-
-import pyverilog
-from pyverilog.dataflow.dataflow_analyzer import VerilogDataflowAnalyzer
 
 
 def main():
