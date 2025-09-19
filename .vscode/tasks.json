@@ -153,6 +153,27 @@
 			"command": "PYTHONPATH=. .venv/bin/python examples/example_dataflow_simplify.py --pretty=off -t alu 4004.v > 4004_dfg_simplified_raw.txt",
 			"isBackground": false,
 			"group": "build"
+		},
+		{
+			"label": "check_dfg_equiv",
+			"type": "shell",
+			"command": "PYTHONPATH=. .venv/bin/python scripts/dfg_equiv_check.py -t alu 4004.v",
+			"isBackground": false,
+			"group": "build"
+		},
+		{
+			"label": "check_dfg_equiv_rerun",
+			"type": "shell",
+			"command": "PYTHONPATH=. .venv/bin/python scripts/dfg_equiv_check.py -t alu 4004.v",
+			"isBackground": false,
+			"group": "build"
+		},
+		{
+			"label": "check_dfg_equiv_noreorder",
+			"type": "shell",
+			"command": "PYTHONPATH=. .venv/bin/python scripts/dfg_equiv_check.py -t alu --noreorder 4004.v",
+			"isBackground": false,
+			"group": "build"
 		}
 	]
 }
